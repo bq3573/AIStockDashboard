@@ -1,6 +1,6 @@
 # 📈 StockInfoApp
 
-**StockInfoApp** is a .NET 4.8 web application that provides users with clean, AI-powered insights into stock performance and financial news. It combines real-time data from market APIs with intelligent article summaries generated via OpenAI's ChatGPT API.
+**StockInfoApp** is a .NET web application that provides users with clean, AI-powered insights into stock performance and financial news. It combines real-time data from market APIs with intelligent article summaries generated via OpenAI's ChatGPT API.
 
 ---
 
