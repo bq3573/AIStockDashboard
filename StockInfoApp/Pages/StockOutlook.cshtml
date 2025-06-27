@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Stock Outlook";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Outlook Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJx3XF8K8hE5O@61QhINm0zA64nIiKh9B6GVbGSKyE5OeIoNkxg3uEd9mg6P" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-center mb-4">AI Stock Outlook Anlysis</h1>
+    <div class="d-grid align-content-center">
+        <div class="row mb-3 w-50">
+            <div class="">
+ 
+                <div class="input-group">
+                    <input type="text" id="tickerInput" list="tickerFilter" class="form-control" placeholder="Enter stock ticker">
+                        <datalist id="tickerFilter">
+
+                        </datalist>
+                    </input>
+                    <button id="tickerButton" class="btn btn-primary">Get Stock Outlook</button>
+                </div>
+            </div>
+        </div>
+            <div class="row mb-3 w-50">
+                <div id="outlookSummary" class="response-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/StockAnalysis.js"></script>
+</body>
+</html>
+
+

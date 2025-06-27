@@ -1,0 +1,124 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Dashboard</title>
+    <div class="page-title-banner">
+        <h1>
+            📈 <span>Stock Analysis Dashboard</span>
+        </h1>
+    </div>
+@*    @{
+        if (ViewBag.Theme == null)
+        {
+            <link rel="stylesheet" href="~/css/BlueTheme.css" />
+        }
+        else if (ViewBag.Theme)
+        {
+            <link rel="stylesheet" href="~/css/GreenTheme.css" />
+        } 
+        else if (!ViewBag.Theme)
+        {
+            <link rel="stylesheet" href="~/css/GreenTheme.css" />
+        }
+    }*@
+    <link id="themeStylesheet" rel="stylesheet" href="~/css/BlueTheme.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJx3XF8K8hE5O@61QhINm0zA64nIiKh9B6GVbGSKyE5OeIoNkxg3uEd9mg6P" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="cont">
+        <div class="row align-items-center">
+            <!-- Right: Trending Stocks -->
+            <div id="trendingDiv" class="">
+                <div id="trendingContainer" class="pt-3"></div>
+            </div>
+        </div>
+
+
+        <!-- First input block for Stock Ticker -->
+        <div class="sticky-header">
+            <!-- Row for input only -->
+            <div class="row">
+                <div class="col-12 col-md-3 pt-3">
+                    <div class="input-group">
+                        <input type="text" id="tickerInput" class="form-control" placeholder="Enter stock ticker">
+                        <button id="submitButton" class="btn btn-primary">Get Stock Data</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="marketStatus"></div>
+                </div>
+                <div class="col-12 col-md-3 pt-3">
+                    <button id="superchargeButton" class="btn btn-primary">Supercharge AI</button>
+                </div>
+            </div>
+
+            <!-- Row for AI overview -->
+
+            <div class="row mb-3" id="SubmissionContainer">
+
+                <div class="col-md-3">
+                    <div class="">
+                        <div id="stockInfoHeader" class="article-header">
+                            💹 <span>Stock Info</span>
+                        </div>
+                        <div id="quoteContainer" class="response-container"></div>
+                        <div id="responseContainer" class="response-container"></div>
+                        <div id="recommend" class="response-container"></div>
+                        <div id="peersContainer" class="peers-card"></div>
+                    </div>
+                </div>
+                <div class="col-md-3 sticky-header">
+                    <div id="stockInfoHeader" class="article-header">
+                        🧠 <span>AI Analysis</span>
+                    </div>
+                    <div id="ai-overview" class="ai-overview"></div>
+                    <div id="ai-outlook" class="ai-outlook"></div>
+                </div>
+                <div class="col-md-3 sticky-header">
+                    <div id="articleHeader columnThreeCont" class="article-header">
+                        📚 <span>Articles</span>
+                    </div>
+                    <div id="responseContainerTwo" class="response-container"></div>
+                </div>
+
+                <div class="col-md-3 mb-3 sticky-header">
+                    <div class="">
+                        <div id="NewsSub" class="input-group">
+                            <input type="text" id="urlInput" class="form-control" placeholder="Input news article URL">
+                            <button id="newsButton" class="btn btn-primary">Get Article Summary</button>
+                        </div>
+                        <div class="container">
+                            <div id="responseContainerSummary" class="row"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/js/StockRequests.js"></script>
+    <div id="superchargePopup" class="supercharge-popup">
+        <div class="supercharge-popup-box">
+            <div class="supercharge-popup-header">
+                <span>📈 AI Supercharged Outlook</span>
+                <button class="supercharge-close">×</button>
+            </div>
+            <div id="superchargeContent" class="supercharge-popup-content"></div>
+        </div>
+        <div class="supercharge-popup-overlay"></div>
+    </div>
+
+</body>
+</html>
+
+
